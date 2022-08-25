@@ -50,7 +50,7 @@ h1 {
   border: solid 3px rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 .thumbnail:hover {
@@ -63,4 +63,100 @@ h1 {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.thumbnail img:focus,
+.thumbnail img:focus-visible {
+  border: solid 5px #8c0dd6;
+}
+
+.popup {
+  animation: fadeIn 0.3s;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup.fadeout {
+  animation: fadeOut 0.3s both;
+}
+
+.popup__img {
+  max-height: 80%;
+  max-width: 80%;
+}
+
+.popup__close {
+  position: fixed;
+  border: none;
+  color: white;
+  background-color: transparent;
+  top: 64px;
+  right: 64px;
+  font-size: 128px;
+  cursor: pointer;
+}
+
+.popup__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 128px;
+  height: 128px;
+  width: 128px;
+  line-height: 128px;
+  border-radius: 50%;
+  border: none;
+  transition: opacity 0.3s;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.popup__close,
+.popup__arrow {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.popup__close:hover,
+.popup__arrow:hover {
+  opacity: 1;
+}
+
+.popup__arrow--left {
+  left: 5%;
+}
+
+.popup__arrow--right {
+  right: 5%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
